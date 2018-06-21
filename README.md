@@ -3,6 +3,8 @@
 Preview your [Nodemailer](https://github.com/andris9/Nodemailer) emails in your
 browser (Inspired by [Letter Opener](https://github.com/ryanb/letter_opener)).
 
+[![Coverage Status](https://coveralls.io/repos/github/jimlambie/nodemailer-preview-transport/badge.svg?branch=master)](https://coveralls.io/github/jimlambie/nodemailer-preview-transport?branch=master)
+
 ## Usage
 
 1. Install via NPM
@@ -46,3 +48,4 @@ browser (Inspired by [Letter Opener](https://github.com/ryanb/letter_opener)).
 
     Any emails sent through the preview transport will be written to the
     `tmpdir` and opened in a browser (unless `browser` is set to false).
+
