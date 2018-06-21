@@ -1,0 +1,4 @@
+--exit
+--bail
+--ui bdd
+--recursive
