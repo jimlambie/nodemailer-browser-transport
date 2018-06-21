@@ -46,3 +46,4 @@ browser (Inspired by [Letter Opener](https://github.com/ryanb/letter_opener)).
 
     Any emails sent through the preview transport will be written to the
     `tmpdir` and opened in a browser (unless `browser` is set to false).
+
