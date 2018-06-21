@@ -8,18 +8,18 @@ browser (Inspired by [Letter Opener](https://github.com/ryanb/letter_opener)).
 1. Install via NPM
 
     ```
-    $ npm install nodemailer-preview-transport
+    $ npm install nodemailer-browser-transport
     ```
 
 2. Use it with Nodemailer
 
     ```javascript
     const nodemailer = require('nodemailer')
-    const nodemailerPreview = require('nodemailer-preview-transport')
+    const nodemailerBrowser = require('nodemailer-browser-transport')
 
     let tmpdir = require('path').join(process.cwd(), 'tmp', 'nodemailer')
 
-    let transport = new nodemailerPreview({
+    let transport = new nodemailerBrowser({
       dir: tmpdir,
       browser: true
     })

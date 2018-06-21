@@ -1,5 +1,5 @@
 {
-  "name": "nodemailer-preview-transport",
+  "name": "nodemailer-browser-transport",
   "author": "James Lambie",
   "version": "0.0.1",
   "description": "Preview your Nodemailer emails in your browser.",
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/jimlambie/nodemailer-preview-transport.git"
+    "url": "git://github.com/jimlambie/nodemailer-browser-transport.git"
   },
   "main": "index.js",
   "scripts": {

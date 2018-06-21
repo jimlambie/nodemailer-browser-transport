@@ -11,19 +11,19 @@ const tmplPath = path.join(__dirname, 'template.jade')
 const template = jade.compile(fs.readFileSync(tmplPath, 'utf-8'))
 
 module.exports = function (options) {
-  return new MailPreviewTransport(options)
+  return new BrowserTransport(options)
 }
 
-function MailPreviewTransport (options) {
+function BrowserTransport (options) {
   this.options = options || {}
   this.dir = options.dir || path.join(process.cwd(), 'tmp', 'postman')
   this.browser = typeof options.browser === 'boolean' ? options.browser : true
   mkdirp.sync(this.dir)
-  this.name = 'MailPreview'
+  this.name = 'BrowserPreview'
   this.version = packageData.version
 }
 
-MailPreviewTransport.prototype.send = function send (mail, callback) {
+BrowserTransport.prototype.send = function send (mail, callback) {
   let timestamp = (new Date()).toISOString().replace(/[-:TZ.]/g, '')
   let directory = path.join(this.dir, timestamp)
   mkdirp.sync(directory)
@@ -182,28 +182,28 @@ MailPreviewTransport.prototype.send = function send (mail, callback) {
 
 // // (function () {
 // //   var nodemailer = require('nodemailer')
-// //   nodemailer.createTransport()// = MailPreviewTransport
+// //   nodemailer.createTransport()// = BrowserTransport
 // // })()
 
-// module.exports = MailPreviewTransport
+// module.exports = BrowserTransport
 
-// function MailPreviewTransport (options) {
+// function BrowserTransport (options) {
 //   options = options || {}
 //   this.dir = options.dir || path.join(process.cwd(), 'tmp', 'postman')
 //   this.browser = typeof options.browser === 'boolean' ? options.browser : true
 //   mkdirp.sync(this.dir)
 // }
 
-// MailPreviewTransport.prototype.sendMail = function (mail, callback) {
+// BrowserTransport.prototype.sendMail = function (mail, callback) {
 //   callback = callback || function () {}
 //   process.nextTick(function () { this._process(mail, callback) }.bind(this))
 // }
 
-// MailPreviewTransport.prototype.close = function (callback) {
+// BrowserTransport.prototype.close = function (callback) {
 //   if (typeof callback === 'function') callback()
 // }
 
-// MailPreviewTransport.prototype._process = function (mail, callback) {
+// BrowserTransport.prototype._process = function (mail, callback) {
 //   console.log(mail)
 //   var timestamp = (new Date()).toISOString().replace(/[-:TZ\.]/g, '')
 //   var directory = path.join(this.dir, timestamp)
