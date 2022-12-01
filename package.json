@@ -1,5 +1,5 @@
 {
-  "name": "nodemailer-browser-transport",
+  "name": "@caruuto/nodemailer-browser-transport",
   "author": "James Lambie",
   "version": "1.0.0",
   "description": "Preview your Nodemailer emails in your browser.",
