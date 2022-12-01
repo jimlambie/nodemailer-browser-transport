@@ -18,19 +18,19 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "standard '*.js' && ./node_modules/.bin/istanbul cover --report cobertura --report text --report html --report lcov ./node_modules/mocha/bin/_mocha test",
-    "posttest": "./scripts/coverage.js"
+    "test": "standard '*.js' && nyc mocha",
+    "posttest": ""
   },
   "dependencies": {
-    "jade": "~0.28.1",
     "mkdirp": "^1.0.4",
-    "open": "^8.4.0"
+    "open": "^8.4.0",
+    "pug": "^3.0.2"
   },
   "devDependencies": {
     "coveralls": "^3.0.1",
-    "istanbul": "^1.1.0-alpha.1",
     "mocha": "^10.1.0",
     "nodemailer": "^6.8.0",
+    "nyc": "^15.1.0",
     "should": "~13.2.0",
     "standard": "*"
   }
