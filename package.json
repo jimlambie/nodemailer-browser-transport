@@ -1,7 +1,7 @@
 {
   "name": "@caruuto/nodemailer-browser-transport",
   "author": "James Lambie",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Preview your Nodemailer emails in your browser.",
   "license": "BSD",
   "keywords": [
