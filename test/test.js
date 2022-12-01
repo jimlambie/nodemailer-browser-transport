@@ -5,15 +5,15 @@ const nodemailer = require('nodemailer')
 
 const nodemailerBrowser = require('./../index')
 
-let tmpdir = path.join(__dirname, 'tmp', 'nodemailer')
-let transport = new nodemailerBrowser({
+const tmpdir = path.join(__dirname, 'tmp', 'nodemailer')
+const transport = new nodemailerBrowser({
   dir: tmpdir,
   browser: false
 })
 
-let mailer = nodemailer.createTransport(transport)
+const mailer = nodemailer.createTransport(transport)
 
-let email = {
+const email = {
   from: 'John Lennon <j.lennon@gmail.com>',
   to: 'Paul McCartney <p.mccartney@gmail.com>, George Harrison <g.harrison@gmail.com>',
   cc: 'Ringo Starr <r.starr@gmail.com>',
@@ -69,12 +69,12 @@ describe('Preview', function () {
     })
 
     it('writes the text part of the email to the corresponding file', function () {
-      let body = fs.readFileSync(response.text, 'utf-8')
+      const body = fs.readFileSync(response.text, 'utf-8')
       assert(body.indexOf("Hey jude, don't make it bad.") >= 0)
     })
 
     it('writes the html part of the email to the corresponding file', function () {
-      let body = fs.readFileSync(response.html, 'utf-8')
+      const body = fs.readFileSync(response.html, 'utf-8')
       assert(body.indexOf('<h1>Hey Jude</h1>') >= 0)
     })
   })

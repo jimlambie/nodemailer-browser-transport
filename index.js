@@ -18,33 +18,41 @@ function BrowserTransport (options) {
   this.options = options || {}
   this.dir = options.dir || path.join(process.cwd(), 'tmp', 'postman')
   this.browser = typeof options.browser === 'boolean' ? options.browser : true
-  mkdirp.sync(this.dir)
   this.name = 'BrowserPreview'
   this.version = packageData.version
+
+  const made = mkdirp.sync(this.dir)
+  if (made) {
+    console.log(`$Created directory ${made}`)
+  }
 }
 
 BrowserTransport.prototype.send = function send (mail, callback) {
-  let timestamp = (new Date()).toISOString().replace(/[-:TZ.]/g, '')
-  let directory = path.join(this.dir, timestamp)
-  mkdirp.sync(directory)
+  const timestamp = (new Date()).toISOString().replace(/[-:TZ.]/g, '')
+  const directory = path.join(this.dir, timestamp)
 
-  let multipart = mail.data.html && mail.data.text
-  let files = {}
+  const made = mkdirp.sync(directory)
+  if (made) {
+    console.log(`$Created directory ${made}`)
+  }
 
-  let parts = ['html', 'text']
+  const multipart = mail.data.html && mail.data.text
+  const files = {}
+
+  const parts = ['html', 'text']
 
   parts.forEach(p => {
     if (!mail.data[p]) return
-    let part = p // (p == 'body' ? 'text' : p)
-    let filename = path.join(directory, 'message_' + part + '.html')
-    let charset = mail.options && mail.options.charset ? mail.options.charset : 'utf-8'
+    const part = p // (p == 'body' ? 'text' : p)
+    const filename = path.join(directory, 'message_' + part + '.html')
+    const charset = mail.options && mail.options.charset ? mail.options.charset : 'utf-8'
 
-    let output = template({
+    const output = template({
       message: mail.data,
-      charset: charset,
+      charset,
       content: mail.data[p],
-      multipart: multipart,
-      part: part
+      multipart,
+      part
     })
 
     fs.writeFileSync(filename, output, charset)
